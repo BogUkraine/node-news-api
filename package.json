@@ -1,0 +1,39 @@
+{
+  "name": "news-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "start" : "node index.js",
+    "dev"   : "nodemon index.js", 
+    "test"  : "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BogUkraine/node-news-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "js",
+    "mongo",
+    "auth2.0",
+    "rest"
+  ],
+  "author": "Bohdan Lysov <BogUkraine@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BogUkraine/node-news-api/issues"
+  },
+  "homepage": "https://github.com/BogUkraine/node-news-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
