@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const router   = require('./lib/router');
 const cors     = require('cors');
 const config   = require('./config');
+const startCron = require('./lib/utils/cronJob');
 
 const app = express();
 
@@ -22,7 +23,9 @@ const start = async () => {
 
         app.listen(config.port, () => {
             console.log(`Server has started on port ${config.port}`);
-        })
+        });
+        
+        startCron();
     } catch (err) {
         console.log('Something went wrong: ', err);
     }
