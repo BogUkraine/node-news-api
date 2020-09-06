@@ -6,5 +6,6 @@ module.exports = {
     mongoURI        : process.env.MONGO_URI,
     newsApiKey      : process.env.NEWS_API_KEY,
     cronTimezone    : process.env.CRON_TIMEOUT_TIMEZONE,
-    cronTimeout     : process.env.CRON_TIMEOUT
+    cronTimeout     : process.env.CRON_TIMEOUT,
+    jwtSecret       : process.env.JWT_SECRET
 }
