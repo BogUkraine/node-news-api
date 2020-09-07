@@ -13,4 +13,5 @@ module.exports = {
     googleRedirectUrl  : process.env.GOOGLE_REDIRECT_URL,
     googleAccessType   : process.env.GOOGLE_ACCESS_TYPE,
     googleScope        : process.env.GOOGLE_SCOPE,
+    cacheTTL           : process.env.CACHE_TIME_TO_LIVE
 }
