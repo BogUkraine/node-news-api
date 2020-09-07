@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "227e7938-c639-46d4-a5af-477619044719",
+		"name": "News-api Lysov Bohdan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register via email/pass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\"          : \"test@gmail.com\",\n\t\"password\"       : \"password\",\n\t\"repeatPassword\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/user/register",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login via email/pass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\"    : \"test@gmail.com\",\n\t\"password\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/user/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in/Sign up with google",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/auth/google",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"auth",
+								"google"
+							]
+						},
+						"description": "You need to use this endpoint in your browser"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Feeds",
+			"item": [
+				{
+					"name": "Show feeds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/feed/:page/:limit",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"feed",
+								":page",
+								":limit"
+							],
+							"variable": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "token you get after login",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"source\" : {\n\t\t\"id\"   : \"text id\",\n\t\t\"name\" : \"source name\"\n\t},\n\t\"author\"      : \"author\",\n\t\"title\"       : \"title\",\n\t\"description\" : \"description\",\n\t\"url\"         : \"http://some.com\",\n\t\"publishedAt\" : \"2020-09-07\",\n\t\"content\"     : \"some content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/feed",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"feed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "token you get after login",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/feed/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"feed",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11111111"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Show favorites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "token you get after login",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/favorites",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete favorite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "token you get after login",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/favorites/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"favorites",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "111111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save favorite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "token you get after login",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/favorites/save/:id",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"favorites",
+								"save",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "111111111"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "aaf8b205-9b93-4d63-95b2-40ee7d5205d1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3e8b8bbc-9691-4cbe-a1c3-8e0fbd88cf85",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "686c1ad3-b313-4f1c-ae46-23c8d2a31f30",
+			"key": "HOST",
+			"value": "localhost:8000/api",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
